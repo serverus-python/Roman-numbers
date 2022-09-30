@@ -1,0 +1,54 @@
+package sort;
+
+public class roman {
+
+	public static void main(String[] args) {
+		
+		String rom="MDCLXVI", num="1111", z="", end="";
+		int n, i, j=0, l, x;
+		
+		if(Integer.parseInt(num)>3999) {
+			System.err.print("Romans couln't count up here :P");
+			System.exit(0);
+		}
+		for(l=0; l<4-num.length(); l++) {
+			z+='0';
+		}
+		num=z+num;
+		
+		x=Character.getNumericValue(num.charAt(0));
+		for(l=0;l<x;l++) {
+			end+='M';
+		}
+		for(i=1;i<4;i++) {
+			j+=2;
+			n = num.charAt(i);
+			if(n!='0') {
+				if(n=='5') {
+					end+=rom.charAt(j-1);
+					continue;	
+				}
+				if(n=='4') {
+					end+=rom.charAt(j);
+					end+=rom.charAt(j-1);
+					continue;
+				}
+				if(n<'9') {
+					if(n>'5') {
+						end+=rom.charAt(j-1);
+						n-=5;
+					}
+					x=Character.getNumericValue(n);
+					for(l=0;l<x;l++) {
+						end+=rom.charAt(j);
+					}
+				}else {
+					end+=rom.charAt(j);
+					end+=rom.charAt(j-2);
+				}
+			}
+		}
+		System.out.println(end);
+	}
+
+}
