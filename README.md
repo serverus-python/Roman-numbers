@@ -1,6 +1,7 @@
 # Roman-numbers
 with this project you can convert decimal numbers in roman numbers and vice versa
 
+
 decimal_to_romans
 
 MDCLXVI
@@ -16,3 +17,8 @@ the index i indiactes the position of the digit(1, 2, 3), the pointer j is used 
 I  1     V  5
 X  10    L  50
 C  100   D  500
+
+
+roman_to_decimal
+
+if the roman digit is smaller then the following digit, we subtract the corrisponding value, otherwise we sum it
